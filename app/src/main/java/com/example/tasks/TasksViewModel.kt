@@ -1,18 +1,17 @@
 package com.example.tasks
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class TasksViewModel(val dao: TaskDao) : ViewModel() {
     var newTaskName = ""
-    private val tasks = dao.getAll()
-//    начиная с Lifecycle_version >= 2.6.0,
-//    вместо val tasksString = Transformations.map(tasks) {
-    val tasksString = tasks.map {
-        tasks -> formatTasks(tasks)
-    }
+    val tasks = dao.getAll()
+    private val _navigateToTask = MutableLiveData<Long?>()
+    val navigateToTask: LiveData<Long?>
+        get() = _navigateToTask
 
     fun addTask() {
         viewModelScope.launch {
@@ -22,17 +21,11 @@ class TasksViewModel(val dao: TaskDao) : ViewModel() {
         }
     }
 
-    fun formatTasks(tasks: List<Task>): String {
-        return tasks.fold("") {
-            str, item -> str + '\n' + formatTask(item)
-        }
+    fun onTaskClicked(taskId: Long) {
+        _navigateToTask.value = taskId
     }
 
-    fun formatTask(task: Task): String {
-        var str = "ID: ${task.taskId}"
-        str += '\n' + "Name: ${task.taskName}"
-        str += '\n' + "Complete: ${task.taskDone}" + '\n'
-
-        return str
+    fun onTaskNavigated() {
+        _navigateToTask.value = null
     }
 }
