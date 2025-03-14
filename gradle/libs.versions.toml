@@ -1,5 +1,5 @@
 [versions]
-agp = "8.8.2"
+agp = "8.9.0"
 kotlin = "1.9.24"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -16,8 +16,8 @@ roomKtx = "2.6.1"
 roomCompiler = "2.6.1"
 recyclerview = "1.4.0"
 cardview = "1.0.0"
-navigationSafeArgsGradlePlugin = "2.8.8"
-navigationFragmentKtx = "2.8.8"
+navigationSafeArgsGradlePlugin = "2.8.9"
+navigationFragmentKtx = "2.8.9"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

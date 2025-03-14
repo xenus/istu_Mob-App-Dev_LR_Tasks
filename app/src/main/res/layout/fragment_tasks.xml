@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:hint="Enter a task name"
             android:inputType="text"
-            android:text="@={viewModel.newTaskName}"/>
+            android:text="@={viewModel.newTaskName}"
+            tools:ignore="Autofill" />
 
         <Button
             android:id="@+id/save_button"
