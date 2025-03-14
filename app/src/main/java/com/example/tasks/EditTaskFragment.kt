@@ -1,11 +1,10 @@
 package com.example.tasks
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -28,8 +27,7 @@ class EditTaskFragment : Fragment() {
         val dao = TaskDatabase.getInstance(application).taskDao
 
         val viewModelFactory = EditTaskViewModelFactory(taskId, dao)
-        val viewModel = ViewModelProvider(this, viewModelFactory)
-            .get(EditTaskViewModel::class.java)
+        val viewModel = ViewModelProvider(this, viewModelFactory)[EditTaskViewModel::class.java]
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
