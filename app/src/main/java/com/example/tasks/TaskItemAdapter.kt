@@ -29,7 +29,12 @@ class TaskItemAdapter(private val cKickListener: (taskId: Long) -> Unit)
         }
 
         fun bind(item: Task, cKickListener: (taskId: Long) -> Unit) {
+            val colorRes = when (item.taskDone) {
+                true -> R.color.state_done
+                else -> R.color.state_open
+            }
             binding.task = item
+            binding.root.setBackgroundResource(colorRes)
             binding.root.setOnClickListener {cKickListener(item.taskId)}
         }
     }
