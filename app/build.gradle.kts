@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.cardview)
     implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.activity.ktx)
 //    kapt(libs.androidx.room.compiler)
     ksp(libs.androidx.room.compiler)
     testImplementation(libs.junit)
