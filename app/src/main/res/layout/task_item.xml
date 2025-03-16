@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:clickable="false"
             android:padding="8dp"
-            android:text="Done?"
+            android:text="@string/done"
             android:textSize="16sp"
             android:checked="@{task.taskDone}"/>
     </LinearLayout>
