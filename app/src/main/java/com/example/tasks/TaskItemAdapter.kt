@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasks.databinding.TaskItemBinding
 
-class TaskItemAdapter(private val ckickListener: (taskId: Long) -> Unit)
+class TaskItemAdapter(private val cKickListener: (taskId: Long) -> Unit)
     : ListAdapter<Task, TaskItemAdapter.TaskItemViewHolder>(TaskDiffItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
@@ -14,7 +14,7 @@ class TaskItemAdapter(private val ckickListener: (taskId: Long) -> Unit)
 
     override fun onBindViewHolder(holder: TaskItemViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item, ckickListener)
+        holder.bind(item, cKickListener)
     }
 
     class TaskItemViewHolder(private val binding: TaskItemBinding)
@@ -28,9 +28,9 @@ class TaskItemAdapter(private val ckickListener: (taskId: Long) -> Unit)
             }
         }
 
-        fun bind(item: Task, ckickListener: (taskId: Long) -> Unit) {
+        fun bind(item: Task, cKickListener: (taskId: Long) -> Unit) {
             binding.task = item
-            binding.root.setOnClickListener {ckickListener(item.taskId)}
+            binding.root.setOnClickListener {cKickListener(item.taskId)}
         }
     }
 }
